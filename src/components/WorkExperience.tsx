@@ -11,7 +11,7 @@ const WorkExperience: React.FC = () => {
   return (
     <Row>
       {workExperiences.map((experience, index) => (
-        <Col md={4} key={index} className="mb-4">
+        <Col md={12} key={index} className="mb-4">
           <Card>
             <Card.Body>
               <Card.Title>{experience.title}</Card.Title>

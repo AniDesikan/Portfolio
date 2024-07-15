@@ -6,8 +6,8 @@ const ProfileInfoCard: React.FC = () => {
     <Card className="profile-info-card">
       <Card.Body>
         <Card.Title>Contact Information</Card.Title>
-        <Card.Text>Email: your.email@example.com</Card.Text>
-        <Card.Text>Phone: (123) 456-7890</Card.Text>
+        <Card.Text>Email: adesikan@bu.edu</Card.Text>
+        <Card.Text>Phone: (608) 239-9226</Card.Text>
       </Card.Body>
     </Card>
   );

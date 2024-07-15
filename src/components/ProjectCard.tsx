@@ -3,9 +3,10 @@ import { Card } from "react-bootstrap";
 interface ProjectCardProps {
   title: string;
   imagesrc: string;
+  explanation: string;
 }
 
-function ProjectCard({ title, imagesrc }: ProjectCardProps) {
+function ProjectCard({ title, imagesrc, explanation }: ProjectCardProps) {
   return (
     <div className="project-card">
       <Card>
@@ -14,7 +15,16 @@ function ProjectCard({ title, imagesrc }: ProjectCardProps) {
             <b>{title}</b>
           </Card.Text>
         </Card.Body>
-        <Card.Img variant="bottom" src={imagesrc} className="rectangle-image" />
+        <div className="gradient-image-container">
+          <Card.Img
+            variant="bottom"
+            src={imagesrc}
+            className="gradient-image"
+          />
+        </div>
+        <Card.Body>
+          <Card.Text>{explanation}</Card.Text>
+        </Card.Body>
       </Card>
     </div>
   );

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Tab, Tabs } from "react-bootstrap";
+import { Container, Row, Col, Nav } from "react-bootstrap";
+import { Link, Element } from "react-scroll";
 import ProfileSidebar from "./ProfileSidebar";
 import Projects from "./Projects";
 import WorkExperience from "./WorkExperience";
+import About from "./About";
+import { InView } from "react-intersection-observer";
 
 const MainLayout: React.FC = () => {
-  const [key, setKey] = useState<string>("projects");
-
+  const [activeTab, setActiveTab] = useState("projects");
   return (
     <Container fluid>
       <Row>
@@ -14,19 +16,83 @@ const MainLayout: React.FC = () => {
           <ProfileSidebar />
         </Col>
         <Col sm={8} className="p-3 main-content-bg">
-          <Tabs
-            id="controlled-tab-example"
-            activeKey={key}
-            onSelect={(k) => setKey(k as string)}
-            className="mb-3 tabs"
+          <div className="Tabs">
+            <Row>
+              <Col sm={2}>
+                <Nav.Item className={activeTab === "about" ? "active" : ""}>
+                  <Link
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                    onSetActive={() => setActiveTab("about")}
+                  >
+                    About
+                  </Link>
+                </Nav.Item>
+              </Col>
+              <Col sm={2}>
+                <Nav.Item className={activeTab === "projects" ? "active" : ""}>
+                  <Link
+                    to="projects"
+                    spy={true}
+                    smooth={true}
+                    onSetActive={() => setActiveTab("projects")}
+                  >
+                    Projects
+                  </Link>
+                </Nav.Item>
+              </Col>
+
+              <Col sm={2}>
+                <Nav.Item
+                  className={activeTab === "experience" ? "active" : ""}
+                >
+                  <Link
+                    to="experience"
+                    spy={true}
+                    smooth={true}
+                    onSetActive={() => setActiveTab("experience")}
+                  >
+                    Experience
+                  </Link>
+                </Nav.Item>
+              </Col>
+            </Row>
+          </div>
+          <InView
+            as="div"
+            onChange={(inView, entry) =>
+              entry.target.classList.toggle("in-view", inView)
+            }
+            className="fade-in-out"
           >
-            <Tab eventKey="projects" title="Projects">
+            <Element name="about">
+              <About />
+            </Element>
+          </InView>
+          <InView
+            as="div"
+            onChange={(inView, entry) =>
+              entry.target.classList.toggle("in-view", inView)
+            }
+            className="fade-in-out"
+          >
+            <Element name="projects">
               <Projects />
-            </Tab>
-            <Tab eventKey="workExperience" title="Work Experience">
+            </Element>
+          </InView>
+
+          <InView
+            as="div"
+            onChange={(inView, entry) =>
+              entry.target.classList.toggle("in-view", inView)
+            }
+            className="fade-in-out"
+          >
+            <Element name="experience">
               <WorkExperience />
-            </Tab>
-          </Tabs>
+            </Element>
+          </InView>
         </Col>
       </Row>
     </Container>
