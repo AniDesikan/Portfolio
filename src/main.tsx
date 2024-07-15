@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import MainLayout from "./components/MainLayout";
+import "bootstrap/dist/css/bootstrap.min.css";
 const router = createBrowserRouter([
   {
     path: "/Portfolio",

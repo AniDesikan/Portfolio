@@ -1,42 +1,74 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Sidebar CSS */
+
+.profile-sidebar {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  width: 80%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.profile-picture img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-info-card,
+.profile-bullet-points {
+  margin-bottom: 20px;
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Project CSS */
+.project-card {
+  width: 100%;
+  height: 5%; /* Adjust this value to get the desired rectangle shape */
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-.card {
-  padding: 2em;
+.rectangle-image {
+  width: 100%;
+  height: 500px; /* Adjust this value to get the desired rectangle shape */
+  object-fit: cover; /* This will prevent the image from being distorted */
+  object-position: top; /* This will position the image at the top */
 }
 
-.read-the-docs {
-  color: #888;
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 1; /* This will ensure the tabs stay on top of other content when scrolling */
+}
+
+/* Background CSS */
+
+.sidebar-bg {
+  background-color: #454444; /* Adjust this value to get the desired color */
+  border-right: 2px solid #7c7c7c;
+}
+
+.main-content-bg {
+  background-color: #2b2a2a; /* Adjust this value to get the desired color */
 }
